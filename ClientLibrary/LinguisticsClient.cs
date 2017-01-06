@@ -103,7 +103,7 @@ namespace Microsoft.ProjectOxford.Linguistics
         {
             var requestUrl = $"{this.serviceHost}/{ListAnalyzersQuery}";
 
-            return await this.SendRequestAsync<object, Analyzer[]>(HttpMethod.Get, requestUrl);
+            return await this.SendRequestAsync<object, Analyzer[]>(HttpMethod.Get, requestUrl).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace Microsoft.ProjectOxford.Linguistics
         {
             var requestUrl = $"{this.serviceHost}/{AnalyzeTextQuery}";
 
-            return await this.SendRequestAsync<object, AnalyzeTextResult[]>(HttpMethod.Post, requestUrl, request);
+            return await this.SendRequestAsync<object, AnalyzeTextResult[]>(HttpMethod.Post, requestUrl, request).ConfigureAwait(false);
         }
         #endregion
 
@@ -138,13 +138,13 @@ namespace Microsoft.ProjectOxford.Linguistics
                 request.Content = new StringContent(JsonConvert.SerializeObject(requestBody, settings), Encoding.UTF8, JsonContentTypeHeader);
             }
 
-            HttpResponseMessage response = await httpClient.SendAsync(request);
+            HttpResponseMessage response = await httpClient.SendAsync(request).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
                 string responseContent = null;
                 if (response.Content != null)
                 {
-                    responseContent = await response.Content.ReadAsStringAsync();
+                    responseContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                 }
 
                 if (!string.IsNullOrWhiteSpace(responseContent))
@@ -158,7 +158,7 @@ namespace Microsoft.ProjectOxford.Linguistics
             {
                 if (response.Content != null && response.Content.Headers.ContentType.MediaType.Contains(JsonContentTypeHeader))
                 {
-                    var errorObjectString = await response.Content.ReadAsStringAsync();
+                    var errorObjectString = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                     ClientError errorCollection = JsonConvert.DeserializeObject<ClientError>(errorObjectString);
                     if (errorCollection != null)
                     {
