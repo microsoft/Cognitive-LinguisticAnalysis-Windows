@@ -38,7 +38,7 @@ namespace Microsoft.ProjectOxford.Linguistics
         /// <summary>
         /// The Default Service Host
         /// </summary>
-        private const string DefaultServiceHost = "https://api.projectoxford.ai/linguistics/v1.0";
+        private const string DefaultServiceHost = "https://westus.api.cognitive.microsoft.com/linguistics/v1.0";
 
         /// <summary>
         /// The JSON content type header.
