@@ -6,7 +6,7 @@ This repo contains the Windows client library & sample for the Microsoft Linguis
 * [Find more SDKs & Samples](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=linguistic%20analysis)
 
 ## Getting Started
-To obtain a subscription key for Linguistic Analysis, [visit our website](<https://www.microsoft.com/cognitive-services/en-us/sign-up>) and sign up for free using a Microsoft account.
+To obtain a subscription key for Linguistic Analysis, visit [the Microsoft Cognitive Services Web site](https://azure.microsoft.com/free/cognitive-services/), create a new Azure account, and try Cognitive Services for free.
 Then open, modify, build, and run the accompanying Visual Studio solution.
 This sample is a C# Windows console application demonstrating the use of the Microsoft Linguistic Analysis API.
 
